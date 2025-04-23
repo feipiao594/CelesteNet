@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 
 namespace Celeste.Mod.CelesteNet
@@ -43,6 +44,8 @@ namespace Celeste.Mod.CelesteNet
             }
 
             public RLock Start() {
+                string stackTrace = new StackTrace(true).ToString();
+                Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取读锁: {stackTrace}");
                 if (_IsDisposed || Inner.WaitingReadCount < 0) // 检查是否已释放
                     return this; // 如果已释放，直接返回，不尝试获取锁
                 
@@ -85,6 +88,8 @@ namespace Celeste.Mod.CelesteNet
             }
 
             public RULock Start() {
+                string stackTrace = new StackTrace(true).ToString();
+                Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取可升级读锁: {stackTrace}");
                 if (_IsDisposed || Inner.WaitingUpgradeCount < 0) // 检查是否已释放
                     return this; // 如果已释放，直接返回，不尝试获取锁
                 
@@ -127,6 +132,8 @@ namespace Celeste.Mod.CelesteNet
             }
 
             public WLock Start() {
+                string stackTrace = new StackTrace(true).ToString();
+                Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取写锁: {stackTrace}");
                 if (_IsDisposed || Inner.WaitingWriteCount < 0) // 检查是否已释放
                     return this; // 如果已释放，直接返回，不尝试获取锁
                 
