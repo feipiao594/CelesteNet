@@ -944,7 +944,7 @@ namespace Celeste.Mod.CelesteNet.Client
                 {
                     var psi = new ProcessStartInfo
                     {
-                        FileName = "https://celeste.centralteam.cn/oauth/authorize?client_id=FSygRsIuDy0edjcJzYuw2PpJL1TwkWa&response_type=code&redirect_uri=http://localhost:38038/auth&scope=celeste.read",
+                        FileName = "https://bbs.celemiao.com/oauth/authorize?client_id=FSygRsIuDy0edjcJzYuw2PpJL1TwkWa&response_type=code&redirect_uri=http://localhost:38038/auth&scope=celeste.read",
                         UseShellExecute = true
                     };
                     Process.Start(psi);
