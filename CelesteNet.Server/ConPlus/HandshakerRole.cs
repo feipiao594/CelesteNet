@@ -273,7 +273,7 @@ Connection: close
 
                 headers.TryGetValue("CelesteNet-ClientVersion", out string? clientVersion);
 
-                const string expectedVersion = "3.2.5";
+                const string expectedVersion = "3.2.6";
                 if (clientVersion != expectedVersion)
                 {
                     await writer.WriteAsync(
@@ -322,7 +322,7 @@ Connection: close
                     );
                     return null;
                 }
-                playerInfo!.AvatarPhotoUrl ??= "https://celeste.centralteam.cn/assets/uploads/profile/default.jpg";
+                playerInfo!.AvatarPhotoUrl ??= "https://bbs.celemiao.com/assets/uploads/profile/default.jpg";
 
                 // Parse the client options
                 CelesteNetClientOptions clientOptions = new();
@@ -448,7 +448,7 @@ Who wants some tea?"
                 }
                 else
                 {
-                    json = HttpUtils.Get($"https://celeste.centralteam.cn/api/celeste/user?access_token={key}");
+                    json = HttpUtils.Get($"https://bbs.celemiao.com/api/celeste/user?access_token={key}");
                 }
                 NyaNetAuthResult? authResult = JsonSerializer.Deserialize<NyaNetAuthResult>(json);
                 if (authResult == null)
