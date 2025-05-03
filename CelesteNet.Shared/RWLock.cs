@@ -44,15 +44,16 @@ namespace Celeste.Mod.CelesteNet
             }
 
             public RLock Start() {
-                
+                // string stackTrace = new StackTrace(true).ToString();
+                // Logger.Log(LogLevel.WRN, "rwlock | feipiao", $"获取读锁: {stackTrace}");
                 if (_IsDisposed || Inner.WaitingReadCount < 0) // 检查是否已释放
                     return this; // 如果已释放，直接返回，不尝试获取锁
                 
                 try {
                     if (!Inner.TryEnterReadLock(5000)) { // 5秒超时
                         Logger.Log(LogLevel.WRN, "rwlock", "获取读锁超时，可能存在死锁风险");
-                        string stackTrace = new StackTrace(true).ToString();
-                        Logger.Log(LogLevel.WRN, "rwlock | feipiao", $"获取读锁: {stackTrace}");
+                        // string stackTrace = new StackTrace(true).ToString();
+                        // Logger.Log(LogLevel.WRN, "rwlock | feipiao", $"获取读锁: {stackTrace}");
                         if (!Inner.TryEnterReadLock(0)) {
                             throw new TimeoutException("无法获取读锁，可能存在死锁");
                         }
@@ -89,16 +90,16 @@ namespace Celeste.Mod.CelesteNet
             }
 
             public RULock Start() {
-                string stackTrace = new StackTrace(true).ToString();
-                Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取可升级读锁: {stackTrace}");
+                // string stackTrace = new StackTrace(true).ToString();
+                // Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取可升级读锁: {stackTrace}");
                 if (_IsDisposed || Inner.WaitingUpgradeCount < 0) // 检查是否已释放
                     return this; // 如果已释放，直接返回，不尝试获取锁
                 
                 try {
                     if (!Inner.TryEnterUpgradeableReadLock(5000)) { // 5秒超时
                         Logger.Log(LogLevel.WRN, "rwlock", "获取可升级读锁超时，可能存在死锁风险");
-                        string stackTrace = new StackTrace(true).ToString();
-                        Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取可升级读锁: {stackTrace}");
+                        // string stackTrace = new StackTrace(true).ToString();
+                        // Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取可升级读锁: {stackTrace}");
                         if (!Inner.TryEnterUpgradeableReadLock(0)) {
                             throw new TimeoutException("无法获取可升级读锁，可能存在死锁");
                         }
@@ -135,16 +136,16 @@ namespace Celeste.Mod.CelesteNet
             }
 
             public WLock Start() {
-                string stackTrace = new StackTrace(true).ToString();
-                Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取写锁: {stackTrace}");
+                // string stackTrace = new StackTrace(true).ToString();
+                // Logger.Log(LogLevel.INF, "rwlock | feipiao", $"获取写锁: {stackTrace}");
                 if (_IsDisposed || Inner.WaitingWriteCount < 0) // 检查是否已释放
                     return this; // 如果已释放，直接返回，不尝试获取锁
                 
                 try {
                     if (!Inner.TryEnterWriteLock(5000)) { // 5秒超时
                         Logger.Log(LogLevel.WRN, "rwlock", "获取写锁超时，可能存在死锁风险");
-                        string stackTrace = new StackTrace(true).ToString();
-                        Logger.Log(LogLevel.WRN, "rwlock | feipiao", $"获取写锁: {stackTrace}");
+                        // string stackTrace = new StackTrace(true).ToString();
+                        // Logger.Log(LogLevel.WRN, "rwlock | feipiao", $"获取写锁: {stackTrace}");
                         if (!Inner.TryEnterWriteLock(0)) {
                             throw new TimeoutException("无法获取写锁，可能存在死锁");
                         }

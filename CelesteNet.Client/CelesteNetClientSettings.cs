@@ -128,7 +128,7 @@ namespace Celeste.Mod.CelesteNet.Client
         [SettingIgnore, YamlIgnore]
         public TextMenu.OnOff? ReceivePlayerAvatarsEntry { get; protected set; }
 
-        public static readonly string[] DefaultServer = { "celesteserver.centralteam.cn:17231", "45.125.44.66:17230" };
+        public static readonly string[] DefaultServer = { "main.server.celemiao.com:10048", "back.server.celemiao.com:17231" };
 
         [SettingIgnore, YamlIgnore]
         public string EffectiveServer
@@ -1103,13 +1103,10 @@ namespace Celeste.Mod.CelesteNet.Client
                 ServerSelectEntry.Index = 0;
                 ServerSelectEntry.Values.Clear();
 
-                for (int i = 0; i < ExtraServers.Length; i++)
+                for (int i = 0; i < DefaultServer.Length + ExtraServers.Length; i++)
                     ServerSelectEntry.Add(i < DefaultServer.Length ? mapName(i) : ExtraServers[i - DefaultServer.Length], i, i == old_idx);
             });
             item.AddDescription(menu, "modoptions_celestenetclient_reloadhint".DialogClean());
-#if !DEBUG
-            item.Visible = ExtraServers.Length > 0;
-#endif
         }
 
 
@@ -1299,7 +1296,7 @@ namespace Celeste.Mod.CelesteNet.Client
 
         public bool UseENFontWhenPossible { get; set; } = false;
 
-        public string Server { get; set; } = "celesteserver.centralteam.cn";
+        public string Server { get; set; } = "main.server.celemiao.com";
 
         public ConnectionType ConnectionType { get; set; } = ConnectionType.Auto;
 

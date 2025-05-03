@@ -22,7 +22,7 @@
 	POSTCARD_CELESTENETCLIENT_BACKTOMENU=			服务器将你传送回了主菜单。
 
 # GhostNet Module Options
-	MODOPTIONS_CELESTENETCLIENT_TITLE=			CelesteNyaNet - 蔚蓝喵服
+	MODOPTIONS_CELESTENETCLIENT_TITLE=			CelesteNyaNet - 蔚蓝喵服飞飘特供版
 
 	MODOPTIONS_CELESTENETCLIENT_CONNECTED=			连接
 	MODOPTIONS_CELESTENETCLIENT_CONNECTEDHINT=			如果连接失败, 请尝试将 “接收玩家头像” 设置为关闭
@@ -153,8 +153,8 @@
     MODOPTIONS_CELESTENETCLIENT_EMOTEWHEEL=     表情轮盘
     
     MODOPTIONS_CELESTENETCLIENT_RELOAD=          重新加载表情
-    MODOPTIONS_CELESTENETCLIENT_RELOADHINT=      需要重新打开设置才可加载出新选项
-                                                 请在文本编辑器中编辑文件 "Saves/modsettings-Miao.CelesteNet.Client.celeste"。
+    MODOPTIONS_CELESTENETCLIENT_RELOADHINT=      请在文本编辑器中编辑文件 "Saves/modsettings-Miao.CelesteNet.Client.celeste"。
+                                                 编辑后请按下该按钮保存，重进设置修改将撤回
     MODOPTIONS_CELESTENETCLIENT_RECOMMENDED=     安装推荐的模组
     MODOPTIONS_CELESTENETCLIENT_RECOMMENDEDHINT= ((list))
 
